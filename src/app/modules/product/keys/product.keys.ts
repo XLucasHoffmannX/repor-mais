@@ -1,0 +1,15 @@
+enum ProductMutationKeys {
+  'CREATE-PRODUCT' = 'PRODUCT',
+  'EDIT-PRODUCT' = 'EDIT-PRODUCT',
+  'REMOVE-PRODUCT' = 'REMOVE-PRODUCT',
+  'RESTORE-PRODUCT' = 'RESTORE-PRODUCT'
+}
+
+enum ProductQueryKeys {
+  'GET-PRODUCT-LIST' = 'GET-PRODUCT-LIST',
+  'GET-PRODUCTS-UNIT' = 'GET-PRODUCTS-UNIT',
+  'GET-PRODUCT-BY-ID' = 'GET-PRODUCT-BY-ID',
+  'GET-PRODUCTS-TRASH' = 'GET-PRODUCTS-TRASH'
+}
+
+export { ProductMutationKeys, ProductQueryKeys };
