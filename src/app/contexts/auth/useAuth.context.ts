@@ -35,7 +35,13 @@ export const useAuthContext = create<IUseAuthContext>()(set => ({
   },
 
   handleLogout: () => {
-    Cookies.remove('access-token', { path: '/', domain: 'localhost' });
+    Cookies.remove('access-token', {
+      path: '/',
+      domain:
+        import.meta.env.ENV === 'prod'
+          ? import.meta.env.COOKIE_DOMAIN
+          : import.meta.env.COOKIE_LOCAL
+    });
 
     set({ userAuthenticated: null });
 
