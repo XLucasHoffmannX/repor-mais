@@ -47,6 +47,6 @@ export const useAuthContext = create<IUseAuthContext>()(set => ({
 
     toast.info('Desconectado!');
 
-    window.location.reload();
+    window.location.href = '/';
   }
 }));
