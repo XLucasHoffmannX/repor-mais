@@ -181,7 +181,6 @@ export function CreateProductView({ context }: ICreateProductProps) {
                             <Input
                               {...field}
                               className='h-[50px] rounded'
-                              errorMessage={errors.costPrice?.message}
                               type='text'
                               value={field.value ?? ''}
                               onChange={e => {
