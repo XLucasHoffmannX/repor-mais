@@ -31,7 +31,7 @@ HttpAuth.interceptors.response.use(
               : import.meta.env.COOKIE_LOCAL
         });
 
-        return window.location.replace('/');
+        window.location.href = '/';
       }
 
       return error;
