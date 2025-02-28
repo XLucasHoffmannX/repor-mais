@@ -26,7 +26,7 @@ HttpAuth.interceptors.response.use(
         Cookies.remove('access-token', {
           path: '/',
           domain:
-            import.meta.env.ENV === 'production'
+            import.meta.env.ENV === 'prod'
               ? import.meta.env.COOKIE_DOMAIN
               : import.meta.env.COOKIE_LOCAL
         });
