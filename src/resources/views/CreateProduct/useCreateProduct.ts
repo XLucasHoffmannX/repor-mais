@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
 
-import { useUnityContext } from '@/app/contexts';
 import { useSession } from '@/app/modules/auth/use-cases';
 import { ProductQueryKeys } from '@/app/modules/product/keys/product.keys';
 import {
@@ -25,8 +24,7 @@ import {
 import { IUseICreateProductProps } from './CreateProduct.types';
 
 export function useCreateProduct({ context }: IUseICreateProductProps) {
-  const { unity } = useUnityContext();
-  const { userAuthenticated } = useSession();
+  const { userAuthenticated, unity } = useSession();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { id } = useParams();

@@ -1,8 +1,10 @@
-import { BetweenHorizontalStart, ChevronsUpDown, Plus } from 'lucide-react';
+import {
+  BetweenHorizontalStart,
+  ChevronsUpDown,
+  ListFilter
+} from 'lucide-react';
 import { toast } from 'sonner';
-import { useShallow } from 'zustand/react/shallow';
 
-import { useUnityContext } from '@/app/contexts';
 import { useSession } from '@/app/modules/auth/use-cases';
 import {
   DropdownMenu,
@@ -26,10 +28,7 @@ export function Switcher() {
 
   const { units, isLoadingUnits } = useSwitcher();
 
-  const [unity, handleSetUnity] = useUnityContext(
-    useShallow(state => [state.unity, state.handleSetUnity])
-  );
-  const { company } = useSession();
+  const { company, unity, handleSetUnity } = useSession();
 
   if (isLoadingUnits) {
     return <Skeleton className='h-[50px] w-[240px]' />;
@@ -86,12 +85,12 @@ export function Switcher() {
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
-            <DropdownMenuItem className='gap-2 p-2'>
+            <DropdownMenuItem className='gap-2 p-2 cursor-pointer'>
               <div className='flex size-6 items-center justify-center rounded-md border bg-background'>
-                <Plus className='size-4' />
+                <ListFilter className='size-4' />
               </div>
               <div className='font-medium text-muted-foreground'>
-                Adicionar unidade
+                Ver unidades
               </div>
             </DropdownMenuItem>
           </DropdownMenuContent>

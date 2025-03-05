@@ -2,6 +2,7 @@ import Lottie from 'react-lottie';
 import { Link } from 'react-router-dom';
 
 import { useSession } from '@/app/modules/auth/use-cases';
+import { AlertHealthCheck } from '@/resources/components/base';
 import { Button, Switch } from '@/resources/components/ui';
 import Animate from '@/shared/animations/animation-login.json';
 import { useAnimationLottie, useTheme } from '@/shared/hooks';
@@ -31,10 +32,13 @@ export function AuthView({ context }: IAuthProps) {
       </div>
 
       {/* Content */}
-      <div className='flex-1 p-4 flex flex-col items-center justify-center overflow-hidden'>
-        <div className='flex flex-col md:flex-row items-center gap-8 '>
+      <div className='flex-1 p-4 flex flex-col items-center justify-center'>
+        <div className='flex flex-col md:flex-row items-center gap-8'>
           {/* content left */}
           <div className='flex flex-col md:w-[440px] w-96'>
+            <div className='md:w-[440px] w-full'>
+              <AlertHealthCheck />
+            </div>
             <div className='flex flex-col items-center gap-2 '>
               <div className='flex flex-col items-center'>
                 <h1 className='font-bold text-6xl'>repor+</h1>

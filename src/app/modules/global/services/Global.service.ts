@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+import { Http } from '@/app/api';
+import { IHealthCheck } from '@/shared/types';
+
 import { GetViaCepAddressByPostalCodeMapper } from './mappers';
 
 import {
@@ -17,6 +20,12 @@ class GlobalService {
     );
 
     return data.erro ? null : GetViaCepAddressByPostalCodeMapper.toDomain(data);
+  }
+
+  async healthCheck(): Promise<IHealthCheck> {
+    const { data } = await Http.get<IHealthCheck>('/health');
+
+    return data;
   }
 }
 

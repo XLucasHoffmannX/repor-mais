@@ -37,8 +37,8 @@ export function NoticeModal({ isOpen }: INoticeModalProps) {
   return (
     <AlertDialog open={isOpen}>
       <AlertDialogContent
-        className={`sm:max-w-md w-[95%] ${
-          !isEmpty ? 'h-[700px]' : 'h-auto'
+        className={`sm:max-w-md w-[95%] overflow-auto ${
+          !isEmpty ? 'max-h-[700px]' : 'h-auto'
         } rounded-lg`}
       >
         <AlertDialogHeader>

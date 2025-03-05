@@ -166,3 +166,8 @@ export interface INotice {
   updatedAt: string;
   deletedAt?: string | null;
 }
+
+export interface IHealthCheck {
+  status: 'ok' | undefined;
+  timestamps: string | undefined;
+}

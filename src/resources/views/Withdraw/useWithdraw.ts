@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
-import { useUnityContext, useWithdrawContext } from '@/app/contexts';
+import { useWithdrawContext } from '@/app/contexts';
 import { useSession } from '@/app/modules/auth/use-cases';
 import { NoticQueryKeys } from '@/app/modules/notice/keys/notice.keys';
 import { ProductQueryKeys } from '@/app/modules/product/keys/product.keys';
@@ -22,9 +22,8 @@ export function useWithdraw() {
   const queryClient = useQueryClient();
 
   const { hash, pathname } = useLocation();
-  const { unity } = useUnityContext();
 
-  const { userAuthenticated } = useSession();
+  const { userAuthenticated, unity } = useSession();
 
   const navigate = useNavigate();
 

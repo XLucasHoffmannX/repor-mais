@@ -7,6 +7,7 @@ import {
   Sparkles
 } from 'lucide-react';
 
+import { useNoticeContext } from '@/app/contexts';
 import { useSession } from '@/app/modules/auth/use-cases';
 import {
   Avatar,
@@ -26,6 +27,7 @@ import {
 export function NavUser() {
   const { isMobile } = useSidebar();
   const { userAuthenticated, handleLogout } = useSession();
+  const handleChangeModal = useNoticeContext(state => state.handleChangeModal);
 
   return (
     <SidebarMenu>
@@ -77,7 +79,10 @@ export function NavUser() {
                 <CreditCard className='text-primary size-5 mx-2' />
                 Pagamentos
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => handleChangeModal({ open: true })}
+                className='cursor-pointer'
+              >
                 <Bell className='text-primary size-5 mx-2' />
                 Notificações
               </DropdownMenuItem>

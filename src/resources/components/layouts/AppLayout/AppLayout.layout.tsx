@@ -9,7 +9,7 @@ import {
 } from '@/resources/components/ui';
 import { NoticeModal, WithdrawModal } from '@/resources/views';
 
-import { ThemeModeToggle } from '../../base';
+import { AlertHealthCheck, ThemeModeToggle } from '../../base';
 
 import { BreadcrumbsHeader } from './components/BreadcrumbsHeader/BreadcrumbsHeader.component';
 import { AppSidebar } from './components';
@@ -37,7 +37,6 @@ export function AppLayout({ children, breadcrumbs }: IAppLayoutProps) {
 
             <BreadcrumbsHeader items={breadcrumbs} />
           </div>
-
           <div className='flex items-center gap-4'>
             <ThemeModeToggle />
 
@@ -50,6 +49,9 @@ export function AppLayout({ children, breadcrumbs }: IAppLayoutProps) {
             </Button>
           </div>
         </header>
+
+        <AlertHealthCheck />
+
         <div className='h-100 w-[98%] md:w-[100%] flex flex-col gap-6 mb-48 px-8 py-4 animate-up'>
           {children}
 

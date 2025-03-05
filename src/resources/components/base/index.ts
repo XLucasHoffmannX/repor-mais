@@ -1,3 +1,4 @@
+export { AlertHealthCheck } from './AlertHealthCheck/AlertHealthCheck.component';
 export { Loader } from './Loader/Loader.component';
 export { Portal } from './Portal/Portal.component';
 export { RowSkeleton } from './RowSkeleton/RowSkeleton.component';

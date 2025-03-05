@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import { useUnityContext } from '@/app/contexts';
+import { useSession } from '@/app/modules/auth/use-cases';
 import { routes } from '@/app/router/router.constant';
 import { Loader } from '@/resources/components/base';
 import { AppLayout } from '@/resources/components/layouts/AppLayout/AppLayout.layout';
@@ -27,7 +27,7 @@ import { useCreateProduct } from './useCreateProduct';
 import { ICreateProductProps } from './CreateProduct.types';
 
 export function CreateProductView({ context }: ICreateProductProps) {
-  const { unity } = useUnityContext();
+  const { unity } = useSession();
 
   const { methods, handleSubmit, errors, control, isLoading } =
     useCreateProduct({ context });
