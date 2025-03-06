@@ -114,8 +114,7 @@ export function useCreateProduct({ context }: IUseICreateProductProps) {
         console.log(data);
 
         const payload: IEditProduct = {
-          ...data,
-          costPrice: data.costPrice ? Number(data.costPrice) : null
+          ...data
         };
 
         await mutateEditProduct(payload)
@@ -133,6 +132,10 @@ export function useCreateProduct({ context }: IUseICreateProductProps) {
 
       queryClient.resetQueries({
         queryKey: [ProductQueryKeys['GET-PRODUCT-BY-ID']]
+      });
+
+      queryClient.resetQueries({
+        queryKey: [ProductQueryKeys['GET-PRODUCT-LIST']]
       });
 
       navigate(routes.app);

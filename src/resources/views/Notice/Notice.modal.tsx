@@ -28,8 +28,6 @@ export function NoticeModal({ isOpen }: INoticeModalProps) {
     handleReloadDataTable
   } = useNotice();
 
-  console.log(noticesList);
-
   const isEmpty = !isLoading && noticesList && noticesList.length === 0;
 
   return (
