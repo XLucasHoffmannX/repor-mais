@@ -21,6 +21,7 @@ import {
   SelectValue,
   Textarea
 } from '@/resources/components/ui';
+import { Mask } from '@/shared/utils/format';
 
 import { useCreateProduct } from './useCreateProduct';
 
@@ -180,17 +181,18 @@ export function CreateProductView({ context }: ICreateProductProps) {
                           <FormControl>
                             <Input
                               {...field}
+                              autoComplete='off'
                               className='h-[50px] rounded'
                               type='text'
-                              value={field.value ?? ''}
+                              value={field.value ? `R$ ${field.value}` : ''}
                               onChange={e => {
-                                const value = e.target.value.replace(
-                                  /[^0-9.]/g,
-                                  ''
-                                );
-                                field.onChange(
-                                  value === '' ? null : Number(value)
-                                );
+                                const maskedValue = Mask.apply(
+                                  'currency',
+                                  e.target.value
+                                )
+                                  .replace(/\s+/g, '')
+                                  .toLowerCase();
+                                field.onChange(maskedValue);
                               }}
                             />
                           </FormControl>

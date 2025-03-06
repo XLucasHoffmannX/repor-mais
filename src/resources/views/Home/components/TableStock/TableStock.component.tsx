@@ -121,11 +121,7 @@ export function TableStock() {
                     : 'N/A'}
                 </TableCell>
                 <TableCell>
-                  {showCost ? (
-                    <>R$ {Number(product.costPrice).toFixed(2)}</>
-                  ) : (
-                    '-'
-                  )}
+                  {showCost ? `R$ ${product.costPrice ?? '-'}` : '-'}
                 </TableCell>
                 <TableCell>
                   <p className='capitalize'>{product.unit}</p>

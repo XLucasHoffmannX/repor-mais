@@ -44,9 +44,7 @@ export function useCreateProduct({ context }: IUseICreateProductProps) {
         category: productReturned.category ?? '',
         brand: productReturned.brand ?? '',
         supplier: productReturned.supplier ?? '',
-        costPrice: productReturned.costPrice
-          ? Number(productReturned.costPrice)
-          : 0,
+        costPrice: productReturned.costPrice ?? '',
         salePrice: productReturned.salePrice
           ? Number(productReturned.salePrice)
           : 0,
@@ -103,7 +101,6 @@ export function useCreateProduct({ context }: IUseICreateProductProps) {
       if (context === 'create') {
         const payload: ICreateProduct = {
           ...data,
-          costPrice: Number(data.costPrice),
           unitEntityId: unity?.id ?? '',
           updatedAt: null,
           createdBy: userAuthenticated?.id ?? ''
@@ -128,7 +125,7 @@ export function useCreateProduct({ context }: IUseICreateProductProps) {
           });
 
         queryClient.resetQueries({
-          queryKey: ['GET-PRODUCT-BY-ID']
+          queryKey: [ProductQueryKeys['GET-PRODUCT-BY-ID']]
         });
 
         toast.success(`Produto atualizado com sucesso!`);

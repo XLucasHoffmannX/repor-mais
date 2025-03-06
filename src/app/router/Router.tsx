@@ -4,6 +4,7 @@ import {
   AuthView,
   CreateProductView,
   HomeView,
+  SettingsView,
   TrashView,
   WithdrawHistoryView
 } from '@/resources/views';
@@ -58,6 +59,11 @@ export function Router() {
           <Route
             path={routes.trash}
             element={<TrashView />}
+          />
+
+          <Route
+            path={routes.settings}
+            element={<SettingsView />}
           />
         </Route>
       </Routes>

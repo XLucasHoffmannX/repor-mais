@@ -2,7 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
 import { useSession } from '@/app/modules/auth/use-cases';
-import { NoticQueryKeys } from '@/app/modules/notice/keys/notice.keys';
+import { NoticeQueryKeys } from '@/app/modules/notice/keys/notice.keys';
 import {
   useGetGenerateAndAllNotices,
   useResolveAllNotices,
@@ -54,7 +54,7 @@ export function useNotice() {
 
   function handleReloadDataTable() {
     queryClient.resetQueries({
-      queryKey: [NoticQueryKeys['GET-AND-GENERATE-NOTICES']]
+      queryKey: [NoticeQueryKeys['GET-AND-GENERATE-NOTICES']]
     });
   }
 

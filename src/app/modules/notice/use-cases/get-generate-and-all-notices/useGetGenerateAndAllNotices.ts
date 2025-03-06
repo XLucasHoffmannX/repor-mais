@@ -3,7 +3,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useQueryCache } from '@/app/cache';
 import { INotice } from '@/shared/types';
 
-import { NoticQueryKeys } from '../../keys/notice.keys';
+import { NoticeQueryKeys } from '../../keys/notice.keys';
 import { NoticeService } from '../../service';
 
 import { IUseGetGenerateAndAllNoticesPayload } from '../../types/notice.types';
@@ -14,7 +14,7 @@ export function useGetGenerateAndAllNotices(
   const queryClient = useQueryClient();
 
   const { data, isFetching } = useQueryCache({
-    queryKey: [NoticQueryKeys['GET-AND-GENERATE-NOTICES']],
+    queryKey: [NoticeQueryKeys['GET-AND-GENERATE-NOTICES']],
     queryFn: async () => await NoticeService.getGenerateAndAllNotices(),
     enabled: payload.enabled
   });
@@ -23,7 +23,7 @@ export function useGetGenerateAndAllNotices(
     updater: INotice[] | ((prevNotices: INotice[]) => INotice[])
   ) {
     queryClient.setQueryData(
-      [NoticQueryKeys['GET-AND-GENERATE-NOTICES']],
+      [NoticeQueryKeys['GET-AND-GENERATE-NOTICES']],
       (oldData: INotice[] | undefined) => {
         if (typeof updater === 'function') {
           return updater(oldData || []);

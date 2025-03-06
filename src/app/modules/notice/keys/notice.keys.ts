@@ -3,8 +3,8 @@ enum NoticeMutationKeys {
   'RESOLVE-NOTICE-BY-ID' = 'RESOLVE-NOTICE-BY-ID'
 }
 
-enum NoticQueryKeys {
+enum NoticeQueryKeys {
   'GET-AND-GENERATE-NOTICES' = 'GET-AND-GENERATE-NOTICES'
 }
 
-export { NoticeMutationKeys, NoticQueryKeys };
+export { NoticeMutationKeys, NoticeQueryKeys };

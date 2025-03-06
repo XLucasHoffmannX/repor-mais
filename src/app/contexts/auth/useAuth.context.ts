@@ -34,6 +34,17 @@ export const useAuthContext = create<IUseAuthContext>()(set => ({
     return;
   },
 
+  handleChangeCompany: updatedCompany => {
+    set(state => ({
+      userAuthenticated: state.userAuthenticated
+        ? {
+            ...state.userAuthenticated,
+            company: updatedCompany
+          }
+        : null
+    }));
+  },
+
   handleLogout: () => {
     Cookies.remove('access-token', {
       path: '/',

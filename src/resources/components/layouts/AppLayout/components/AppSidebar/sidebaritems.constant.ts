@@ -42,7 +42,7 @@ export const sidebarItems = {
   moreItems: [
     {
       title: 'Configurações',
-      url: '',
+      url: routes.settings,
       icon: Settings,
       dropdown: false
     }

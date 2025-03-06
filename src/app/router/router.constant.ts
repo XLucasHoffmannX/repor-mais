@@ -6,5 +6,6 @@ export const routes = {
   history: '/history',
   trash: '/history/trash',
   create_product: '/create-product',
-  edit_product: '/edit-product'
+  edit_product: '/edit-product',
+  settings: '/settings'
 };

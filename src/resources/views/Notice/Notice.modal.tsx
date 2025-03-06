@@ -102,7 +102,8 @@ export function NoticeModal({ isOpen }: INoticeModalProps) {
                     <li
                       key={`${message.id}-${index}`}
                       className={`flex items-center justify-between p-4 rounded-md hover:bg-neutral-200 border-none text-sm bg-neutral-100 m-4 ${
-                        theme === 'dark' && 'bg-secondary text-black'
+                        theme === 'dark' &&
+                        'bg-secondary text-white hover:text-black'
                       }`}
                     >
                       <div className='flex items-center justify-between'>

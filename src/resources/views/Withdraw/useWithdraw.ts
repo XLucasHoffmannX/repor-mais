@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 
 import { useWithdrawContext } from '@/app/contexts';
 import { useSession } from '@/app/modules/auth/use-cases';
-import { NoticQueryKeys } from '@/app/modules/notice/keys/notice.keys';
+import { NoticeQueryKeys } from '@/app/modules/notice/keys/notice.keys';
 import { ProductQueryKeys } from '@/app/modules/product/keys/product.keys';
 import { useGetProductsByUnit } from '@/app/modules/product/use-cases';
 import { UnityQueryKeys } from '@/app/modules/unity/keys/unity.keys';
@@ -89,7 +89,7 @@ export function useWithdraw() {
       });
 
       queryClient.resetQueries({
-        queryKey: [NoticQueryKeys['GET-AND-GENERATE-NOTICES']]
+        queryKey: [NoticeQueryKeys['GET-AND-GENERATE-NOTICES']]
       });
 
       handleChangeModal({ context: 'remove', open: false });

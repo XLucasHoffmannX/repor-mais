@@ -15,4 +15,5 @@ export interface IUseAuthContext {
   expiresIn: number | null;
   handleSetUserAuth: (token: string, user?: IUser) => void;
   handleLogout: () => void;
+  handleChangeCompany: (company: ICompany) => void;
 }
