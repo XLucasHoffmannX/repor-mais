@@ -111,7 +111,7 @@ export function useCreateProduct({ context }: IUseICreateProductProps) {
       }
 
       if (context === 'edit' && id) {
-        console.log(data);
+        delete data.barcode;
 
         const payload: IEditProduct = {
           expirationDate: data.expirationDate ? data.expirationDate : null,

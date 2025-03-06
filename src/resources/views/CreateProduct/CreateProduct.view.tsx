@@ -97,6 +97,7 @@ export function CreateProductView({ context }: ICreateProductProps) {
                               {...field}
                               className='h-[50px] rounded'
                               errorMessage={errors.barcode?.message}
+                              disabled={context === 'edit'}
                             />
                           </FormControl>
                         </FormItem>
