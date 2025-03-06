@@ -23,7 +23,9 @@ class GlobalService {
   }
 
   async healthCheck(): Promise<IHealthCheck> {
-    const { data } = await Http.get<IHealthCheck>('/health');
+    const { data } = await Http.get<IHealthCheck>('/health', {
+      timeout: 10000
+    });
 
     return data;
   }
