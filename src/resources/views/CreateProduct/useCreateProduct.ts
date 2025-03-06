@@ -114,6 +114,7 @@ export function useCreateProduct({ context }: IUseICreateProductProps) {
         console.log(data);
 
         const payload: IEditProduct = {
+          expirationDate: data.expirationDate ? data.expirationDate : null,
           ...data
         };
 
