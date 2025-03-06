@@ -5,10 +5,8 @@ import { useNoticeContext } from '@/app/contexts';
 import {
   AlertDialog,
   AlertDialogContent,
-  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  Button,
   Skeleton
 } from '@/resources/components/ui';
 import { useTheme } from '@/shared/hooks';
@@ -42,18 +40,53 @@ export function NoticeModal({ isOpen }: INoticeModalProps) {
         } rounded-lg`}
       >
         <AlertDialogHeader>
-          <AlertDialogTitle className='mb-4 flex items-center gap-2'>
+          <AlertDialogTitle className='mb-4 flex items-center gap-2 justify-between'>
             Avisos
+            <X
+              onClick={() => {
+                handleChangeModal({ open: false });
+              }}
+              className='cursor-pointer'
+            />
           </AlertDialogTitle>
         </AlertDialogHeader>
+        {isEmpty && (
+          <p className='text-sm font-medium text-center mb-4'>
+            Nenhum aviso disponível
+          </p>
+        )}
 
-        <div className='mb-4 h-full overflow-auto'>
-          {isEmpty && (
-            <p className='text-sm font-medium text-center'>
-              Nenhum aviso disponível
-            </p>
+        <div
+          className={`flex items-center ${
+            isEmpty ? 'justify-start' : 'justify-between'
+          } px-4`}
+        >
+          {!isEmpty && (
+            <Link
+              to='#'
+              className='flex items-center gap-2 text-blue-500 text-sm'
+              onClick={() => {
+                handleRemoveAllNotices();
+              }}
+            >
+              Limpar tudo
+              <X size='16' />
+            </Link>
           )}
 
+          <Link
+            to='#'
+            className='flex items-center gap-2 text-blue-500 text-sm'
+            onClick={() => {
+              handleReloadDataTable();
+            }}
+          >
+            <RotateCcw size='16' />
+            Recarregar
+          </Link>
+        </div>
+
+        <div className='mb-4 h-full overflow-auto'>
           <ul className='overflow-auto rounded-md '>
             {isLoading
               ? Array.from({ length: 3 }).map((_, index) => (
@@ -87,50 +120,6 @@ export function NoticeModal({ isOpen }: INoticeModalProps) {
                 )}
           </ul>
         </div>
-
-        <div
-          className={`flex items-center ${
-            isEmpty ? 'justify-start' : 'justify-between'
-          } mt-2 p-3`}
-        >
-          {!isEmpty && (
-            <Link
-              to='#'
-              className='flex items-center gap-2 text-blue-500 text-sm'
-              onClick={() => {
-                handleRemoveAllNotices();
-              }}
-            >
-              Limpar tudo
-              <X size='16' />
-            </Link>
-          )}
-
-          <Link
-            to='#'
-            className='flex items-center gap-2 text-blue-500 text-sm'
-            onClick={() => {
-              handleReloadDataTable();
-            }}
-          >
-            <RotateCcw size='16' />
-            Recarregar
-          </Link>
-        </div>
-
-        <AlertDialogFooter>
-          <Button
-            variant='outline'
-            type='button'
-            size='lg'
-            onClick={() => {
-              handleChangeModal({ open: false });
-              window.history.replaceState(null, '', window.location.pathname);
-            }}
-          >
-            Fechar
-          </Button>
-        </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   );
