@@ -9,7 +9,7 @@ export function AlertHealthCheck() {
   return (
     <>
       {!health && !isLoadingHealthCheck && (
-        <div className='p-4'>
+        <div className='p-4 animate-down'>
           <Alert variant='warning'>
             <TriangleAlert className='h-4 w-4 ' />
             <AlertTitle>Serviço Temporariamente Indisponível</AlertTitle>
