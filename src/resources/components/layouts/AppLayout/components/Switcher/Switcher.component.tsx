@@ -72,6 +72,10 @@ export function Switcher() {
               <DropdownMenuItem
                 key={unt.name}
                 onClick={() => {
+                  if (unt === unity) {
+                    return;
+                  }
+
                   handleSetUnity(unt);
                   toast.info(`Loja alterada para ${unt.name}`);
                 }}

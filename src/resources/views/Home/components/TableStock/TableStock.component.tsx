@@ -51,6 +51,15 @@ export function TableStock() {
     ])
   );
 
+  function isExpirationNear(expirationDate: string) {
+    const currentDate = new Date();
+    const expiration = new Date(expirationDate);
+    const timeDifference = expiration.getTime() - currentDate.getTime();
+    const daysDifference = timeDifference / (1000 * 3600 * 24);
+
+    return daysDifference <= 7 && daysDifference >= 0;
+  }
+
   return (
     <Table>
       <TableHeader>
@@ -113,7 +122,12 @@ export function TableStock() {
                   {product.stockQuantity}
                 </TableCell>
                 <TableCell>{product.minimumStock}</TableCell>
-                <TableCell>
+                <TableCell
+                  className={`${
+                    isExpirationNear(product.expirationDate ?? '') &&
+                    'text-red-500 font-bold'
+                  }`}
+                >
                   {product.expirationDate
                     ? format(new Date(product.expirationDate), 'dd/MM/yyyy', {
                         locale: ptBR
