@@ -3,6 +3,7 @@ import {
   ChevronsUpDown,
   ListFilter
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 
 import { useSession } from '@/app/modules/auth/use-cases';
@@ -73,6 +74,11 @@ export function Switcher() {
                 key={unt.name}
                 onClick={() => {
                   handleSetUnity(unt);
+
+                  if (unt === unity) {
+                    return;
+                  }
+
                   toast.info(`Loja alterada para ${unt.name}`);
                 }}
                 className='gap-2 p-2'
@@ -89,9 +95,13 @@ export function Switcher() {
               <div className='flex size-6 items-center justify-center rounded-md border bg-background'>
                 <ListFilter className='size-4' />
               </div>
-              <div className='font-medium text-muted-foreground'>
+
+              <Link
+                to='/settings'
+                className='font-medium text-muted-foreground'
+              >
                 Ver unidades
-              </div>
+              </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

@@ -1,9 +1,13 @@
 import { HttpAuth } from '@/app/api';
 import { IUnity } from '@/shared/types';
 
+import { IGetAllUnitsPayload } from '../types/unity.types';
+
 class UnityService {
-  async getAllUnits(): Promise<IUnity[]> {
-    const { data } = await HttpAuth.get('/units');
+  async getAllUnits(payload: IGetAllUnitsPayload): Promise<IUnity[]> {
+    const { data } = await HttpAuth.get('/units', {
+      params: { search: payload.search }
+    });
 
     return data;
   }

@@ -2,7 +2,11 @@ import { IUnity } from '@/shared/types';
 
 /* getAllUnits */
 
-export interface IUseGetAllUnitsProps {
+export interface IGetAllUnitsPayload {
+  search?: string;
+}
+
+export interface IUseGetAllUnitsProps extends IGetAllUnitsPayload {
   enabled?: boolean;
 }
 

@@ -1,7 +1,8 @@
 import { routes } from '@/app/router/router.constant';
 import { AppLayout } from '@/resources/components/layouts/AppLayout/AppLayout.layout';
+import { Separator } from '@/resources/components/ui';
 
-import { CompanySettings } from './components';
+import { CompanySettings, UnitSettings } from './components';
 
 export function SettingsView() {
   return (
@@ -12,6 +13,12 @@ export function SettingsView() {
 
           <div className='mt-4'>
             <CompanySettings />
+          </div>
+
+          <Separator className='my-8' />
+
+          <div className='mt-4'>
+            <UnitSettings />
           </div>
         </div>
       </section>
