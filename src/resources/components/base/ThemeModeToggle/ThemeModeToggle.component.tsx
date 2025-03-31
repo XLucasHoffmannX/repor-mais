@@ -3,12 +3,7 @@ import { LucideMoon, LucideSun } from 'lucide-react';
 import { Button } from '@/resources/components/ui/button';
 import { useTheme } from '@/shared/hooks';
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from '../../ui';
+import { DropdownMenu, DropdownMenuTrigger } from '../../ui';
 
 export function ThemeModeToggle() {
   const { setTheme, theme } = useTheme();
@@ -20,6 +15,7 @@ export function ThemeModeToggle() {
           variant='outline'
           size='icon'
           className='flex items-center justify-center'
+          onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
         >
           {theme === 'light' ? (
             <LucideSun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
@@ -28,20 +24,6 @@ export function ThemeModeToggle() {
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='end'>
-        <DropdownMenuItem
-          onClick={() => setTheme('light')}
-          className='cursor-pointer'
-        >
-          Claro
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => setTheme('dark')}
-          className='cursor-pointer'
-        >
-          Escuro
-        </DropdownMenuItem>
-      </DropdownMenuContent>
     </DropdownMenu>
   );
 }

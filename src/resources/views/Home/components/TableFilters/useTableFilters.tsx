@@ -14,7 +14,7 @@ export function useTableFilter() {
 
   const { units, isLoadingUnits } = useGetAllUnits({ enabled: true });
 
-  /* serach name product */
+  /* search name product */
   const debounceSearcName = useDebounce(searchTerm);
 
   /* barcode */
