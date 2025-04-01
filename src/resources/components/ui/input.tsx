@@ -9,8 +9,10 @@ export interface IInputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, IInputProps>(
-  // eslint-disable-next-line react/prop-types
-  ({ className, type, error, errorMessage, ...props }, ref) => {
+  (
+    { className, type, error, errorMessage, onChange, value, ...props },
+    ref
+  ) => {
     return (
       <>
         <input
@@ -22,6 +24,8 @@ const Input = React.forwardRef<HTMLInputElement, IInputProps>(
             className
           )}
           ref={ref}
+          value={value}
+          onChange={onChange}
           {...props}
         />
         {errorMessage && (

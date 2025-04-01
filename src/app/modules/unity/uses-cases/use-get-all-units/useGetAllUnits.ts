@@ -5,14 +5,12 @@ import { UnityService } from '../../service';
 
 import { IUseGetAllUnits, IUseGetAllUnitsProps } from '../../types/unity.types';
 
-export function useGetAllUnits({
-  search,
-  enabled
-}: IUseGetAllUnitsProps): IUseGetAllUnits {
+export function useGetAllUnits(payload: IUseGetAllUnitsProps): IUseGetAllUnits {
   const { data, isLoading } = useQueryCache({
-    queryKey: [UnityQueryKeys['GET-ALL-UNITS'], { search, enabled }],
-    queryFn: async () => await UnityService.getAllUnits({ search }),
-    enabled: enabled
+    queryKey: [UnityQueryKeys['GET-ALL-UNITS'], payload],
+    queryFn: async () =>
+      await UnityService.getAllUnits({ search: payload.search }),
+    enabled: payload.enabled
   });
 
   return {

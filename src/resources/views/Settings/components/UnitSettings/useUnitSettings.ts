@@ -13,7 +13,7 @@ export function useUnitSettings() {
 
   const { units, isLoadingUnits } = useGetAllUnits({
     enabled: true,
-    search: filters.search ?? ''
+    search: filters.search || ''
   });
 
   useEffect(() => {

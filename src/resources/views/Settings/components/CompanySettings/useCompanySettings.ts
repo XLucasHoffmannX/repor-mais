@@ -81,6 +81,7 @@ export function useCompanySettings() {
     errors: methods.formState.errors,
     control: methods.control,
     isLoading: isFetchingCompanyReturned,
-    isPendingMutate
+    isPendingMutate,
+    company: companyReturned
   };
 }
