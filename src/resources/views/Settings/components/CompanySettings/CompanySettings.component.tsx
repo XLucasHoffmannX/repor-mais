@@ -12,8 +12,15 @@ import {
 import { useCompanySettings } from './useCompanySettings';
 
 export function CompanySettings() {
-  const { methods, handleSubmit, control, errors, isLoading, isPendingMutate } =
-    useCompanySettings();
+  const {
+    methods,
+    handleSubmit,
+    control,
+    errors,
+    isLoading,
+    isPendingMutate,
+    company
+  } = useCompanySettings();
 
   return (
     <div className='mt-8'>
@@ -47,9 +54,10 @@ export function CompanySettings() {
             </div>
             <div className='flex flex-row mt-3'>
               <Button
-                className='hover:scale-105 h-[50px] transition-all duration-300 flex items-center justify-center gap-[8px] px-[24px] transform active:scale-90 hover:opacity-[80%] md:w-[150px] w-full text-white'
+                className='hover:scale-105 h-[45px] transition-all duration-300 flex items-center justify-center gap-[8px] px-[24px] transform active:scale-90 hover:opacity-[80%] md:w-[150px] w-full text-white'
                 type='submit'
                 isLoading={isPendingMutate}
+                disabled={company?.name === methods.getValues().name}
               >
                 Atualizar
               </Button>

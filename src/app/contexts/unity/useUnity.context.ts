@@ -7,6 +7,7 @@ export const useUnityContext = create<IUseUnityContext>()((set, get) => ({
     search: null
   },
   unity: undefined,
+  modalUnit: { open: false, id: undefined },
 
   handleChangeFilter: ({ search }) => {
     set(state => ({
@@ -23,5 +24,9 @@ export const useUnityContext = create<IUseUnityContext>()((set, get) => ({
     }
 
     set({ unity: unity });
+  },
+
+  handleChangeModalUnit: modalUnit => {
+    set({ modalUnit: modalUnit });
   }
 }));

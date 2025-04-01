@@ -6,7 +6,9 @@ import { IGetAllUnitsPayload } from '../types/unity.types';
 class UnityService {
   async getAllUnits(payload: IGetAllUnitsPayload): Promise<IUnity[]> {
     const { data } = await HttpAuth.get('/units', {
-      params: { search: payload.search }
+      params: {
+        ...(payload.search && { search: payload.search })
+      }
     });
 
     return data;
