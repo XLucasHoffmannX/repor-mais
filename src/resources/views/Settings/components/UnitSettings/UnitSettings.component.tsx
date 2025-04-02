@@ -50,7 +50,7 @@ export function UnitSettings() {
 
       <div className='flex gap-4 items-center my-5'>
         <Input
-          placeholder='Buscar por nome do produto...'
+          placeholder='Buscar por unidade...'
           className='w-[250px] h-[40px]'
           onChange={e => {
             onChangeSetSearchTerm(e.target.value);
