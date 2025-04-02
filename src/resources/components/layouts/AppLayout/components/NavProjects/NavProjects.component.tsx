@@ -46,7 +46,7 @@ export function NavProjects({
         <SidebarMenuItem>
           <SidebarMenuButton asChild>
             <Link
-              to='#botice'
+              to='#'
               onClick={() => {
                 handleChangeModal({ open: true });
               }}
