@@ -7,8 +7,7 @@ export function useGetHealthCheck() {
   const { data, isLoading } = useQueryCache({
     queryKey: [GlobalQueryKeys['GET_HEALTH_CHECK']],
     queryFn: GlobalService.healthCheck,
-    refetchInterval: 120000,
-    refetchIntervalInBackground: false,
+    refetchIntervalInBackground: true,
     refetchOnWindowFocus: true
   });
 
