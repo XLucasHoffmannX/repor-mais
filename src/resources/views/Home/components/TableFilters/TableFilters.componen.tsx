@@ -55,7 +55,6 @@ export function TableFilters() {
         onValueChange={value => handleChangeFilter({ unit: value })}
       >
         <SelectTrigger className='w-[200px]'>
-          {/* Exibir o nome da unidade selecionada ou "Todos os estoques" */}
           {selectedUnit ? selectedUnit.name : 'Todos os estoques'}
         </SelectTrigger>
         <SelectContent>

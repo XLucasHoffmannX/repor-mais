@@ -99,20 +99,22 @@ export function NoticeModal({ isOpen }: INoticeModalProps) {
                   (message, index) => (
                     <li
                       key={`${message.id}-${index}`}
-                      className={`flex items-center justify-between p-4 rounded-md hover:bg-neutral-200 border-none text-sm bg-neutral-100 m-4 ${
+                      className={`p-4 rounded-md hover:bg-neutral-200 border-none text-sm bg-neutral-100 m-4 ${
                         theme === 'dark' &&
                         'bg-secondary text-white hover:text-black'
                       }`}
                     >
-                      <div className='flex items-center justify-between'>
-                        <p className='flex-1 break-words max-w-[80%] leading-tight'>
+                      <div className='flex '>
+                        <p className='flex-1 break-words leading-tight '>
                           {message.message}
                         </p>
-                        <Trash2
-                          className='ml-2 cursor-pointer text-red-500'
-                          size='18'
-                          onClick={() => handRemoveNotice(message.id)}
-                        />
+                        <div className='flex items-center justify-end'>
+                          <Trash2
+                            className='ml-2 cursor-pointer text-red-500 '
+                            size='18'
+                            onClick={() => handRemoveNotice(message.id)}
+                          />
+                        </div>
                       </div>
                     </li>
                   )

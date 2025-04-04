@@ -34,6 +34,7 @@ export function TableHistory() {
           <TableHead>Responsável</TableHead>
           <TableHead>Data</TableHead>
           <TableHead>Unidade</TableHead>
+          <TableHead>Descrição</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -77,6 +78,7 @@ export function TableHistory() {
                   : 'N/A'}
               </TableCell>
               <TableCell>{wtd.unit?.name || '—'} </TableCell>
+              <TableCell>{wtd.reason || '—'}</TableCell>
             </TableRow>
           ))}
 
