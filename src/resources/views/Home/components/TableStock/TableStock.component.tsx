@@ -76,7 +76,6 @@ export function TableStock() {
             </div>
           </TableHead>
           <TableHead className='w-[20px]'>Tipo</TableHead>
-          <TableHead className='w-[20px]'>Status</TableHead>
           <TableHead className='text-center'>-</TableHead>
         </TableRow>
       </TableHeader>
@@ -126,7 +125,6 @@ export function TableStock() {
                 <TableCell>
                   <p className='capitalize'>{product.unit}</p>
                 </TableCell>
-                <TableCell>Status</TableCell>
                 <TableCell className=''>
                   <div className='flex gap-2 items-center justify-center'>
                     <Popover>

@@ -1,4 +1,4 @@
-import { BookX, Info, SquareArrowOutUpRight } from 'lucide-react';
+import { BookX, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -67,13 +67,14 @@ export function UnitSettings() {
           units &&
           units.map((unit, index) => (
             <Card
-              className='w-[300px] cursor-pointer'
+              className='w-[300px] '
               key={`${unit.id}-unit-${index}`}
+              onClick={() => {}}
             >
               <CardHeader>
                 <CardTitle className='flex items-center justify-between'>
                   {unit.name}
-                  <SquareArrowOutUpRight className='size-4' />
+                  {/* <SquareArrowOutUpRight className='size-4' /> */}
                 </CardTitle>
               </CardHeader>
             </Card>
