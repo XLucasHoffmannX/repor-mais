@@ -14,3 +14,8 @@ export interface IUseGetAllUnits {
   units: IUnity[] | undefined;
   isLoadingUnits: boolean;
 }
+
+/* createUnit */
+export interface ICreateUnitPayload {
+  name: IUnity['name'];
+}

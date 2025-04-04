@@ -7,6 +7,7 @@ import { useDebounce } from '@/shared/hooks';
 export function useUnitSettings() {
   const { filters, handleChangeFilter } = useUnityContext();
   const [searchTerm, setSearchTerm] = useState('');
+  const [modalOpened, setModalOpened] = useState(false);
 
   /* search unit product */
   const debounceSearcName = useDebounce(searchTerm);
@@ -25,6 +26,8 @@ export function useUnitSettings() {
   return {
     units,
     isLoadingUnits,
-    onChangeSetSearchTerm: setSearchTerm
+    onChangeSetSearchTerm: setSearchTerm,
+    modalOpened,
+    onChangeSetModalOpened: setModalOpened
   };
 }

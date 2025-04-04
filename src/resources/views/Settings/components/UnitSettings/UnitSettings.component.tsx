@@ -13,10 +13,18 @@ import {
   TooltipTrigger
 } from '@/resources/components/ui';
 
+import { CreateUnitModal } from '../CreateUnitModal/CreateUnitModal.component';
+
 import { useUnitSettings } from './useUnitSettings';
 
 export function UnitSettings() {
-  const { units, onChangeSetSearchTerm, isLoadingUnits } = useUnitSettings();
+  const {
+    units,
+    onChangeSetSearchTerm,
+    isLoadingUnits,
+    modalOpened,
+    onChangeSetModalOpened
+  } = useUnitSettings();
 
   const isEmpty = !isLoadingUnits && units && units.length === 0;
 
@@ -45,7 +53,9 @@ export function UnitSettings() {
             </Tooltip>
           </TooltipProvider>
         </h2>
-        <span className='text-sm'>1 de 4</span>
+        <span className='text-sm'>
+          {!isLoadingUnits && units && units.length} de 4
+        </span>
       </div>
 
       <div className='flex gap-4 items-center my-5'>
@@ -57,7 +67,10 @@ export function UnitSettings() {
           }}
         />
 
-        {/* <CreateUnitModal /> */}
+        <CreateUnitModal
+          modalOpened={modalOpened}
+          onChangeSetModalOpened={onChangeSetModalOpened}
+        />
       </div>
 
       <div className='flex flex-wrap gap-4 items-center'>
